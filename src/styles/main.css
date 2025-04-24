@@ -1,12 +1,14 @@
-/* #1c1b2f Violet foncé -	Background */
+/* #444352 Violet gris - Background global */
+/* #1c1b2f Violet foncé -	Background des composents */
 /* #a172f8 Violet clair	- Border */
 /* #dd4fd0 Rose - Titles */
 /* linear-gradient(to right, #a172f8, #dd4fd0) Dégradé violet/rose - Buttons */
 /* #e0d9ff Gris -	Texte secondaire */
 
 :root {
-  --color-bg: #1c1b2f;
-  --color-violet: #a172f8;
+  --color-bg: #1c0a30;
+  --color-bgComponents: #1c1b2f;
+  --color-violet: #9269df;
   --color-pink: #dd4fd0;
   --color-light: #e0d9ff;
 }

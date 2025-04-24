@@ -1,12 +1,13 @@
 :root {
-    --color-bg: #1c1b2f;
-    --color-violet: #a172f8;
+    --color-bg: #1c0a30;
+    --color-bgComponents: #1c1b2f;
+    --color-violet: #9269df;
     --color-pink: #dd4fd0;
     --color-light: #e0d9ff;
 }
 
 form {
-    background-color: #22203a;
+    background-color: var(--color-bgComponents);
     border: 3px solid var(--color-violet);
     border-radius: 15px;
     padding: 2%;
@@ -54,7 +55,7 @@ button {
     width: 100%;
     padding: 3%;
     background: linear-gradient(to right, var(--color-violet), var(--color-pink));
-    color: var(--color-bg);
+    color: var(--color-bgComponents);
     font-weight: bold;
     border: none;
     border-radius: 8px;
