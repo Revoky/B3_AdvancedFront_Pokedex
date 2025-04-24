@@ -1,19 +1,7 @@
 import React from "react";
 import TrainerCard from "./TrainerCard";
 import '../index.css';
-
-interface Trainer {
-  trainerName: string;
-  email: string;
-  password: string;
-}
-
-interface TrainerListProps {
-  profiles: Trainer[];
-  activeTrainerEmail: string | null;
-  onSwitch: (trainer: Trainer) => void;
-  onDelete: (trainer: Trainer) => void;
-}
+import { TrainerListProps } from "../types";
 
 const TrainerList: React.FC<TrainerListProps> = ({ profiles, activeTrainerEmail, onSwitch, onDelete }) => {
   return (

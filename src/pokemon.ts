@@ -1,4 +1,4 @@
-[
+const pokemonList = [
     {
       "pokedex_id": 1,
       "generation": 1,
@@ -21927,3 +21927,5 @@
       "formes": null
     }
   ]
+
+export default pokemonList;
