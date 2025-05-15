@@ -39,8 +39,7 @@ const HomePage: React.FC = () => {
 
       {activeTrainer && (
         <div className="text-center mb-6">
-          <p className="text-lg text-[#e0d9ff] mb-2">Ton starter est :</p>
-          <p className="text-2xl font-bold text-[#e0a0f0]">{activeTrainer.starterPokemon}</p>
+          <p className="text-2xl font-bold text-[#e0a0f0]">Ton starter est {activeTrainer.starterPokemon}</p>
           <img
             src={`https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/${
               activeTrainer.starterPokemon === "Bulbizarre" ? "1" :
@@ -48,7 +47,7 @@ const HomePage: React.FC = () => {
               "7"
             }/regular.png`}
             alt={activeTrainer.starterPokemon}
-            className="mt-4 w-28 h-28 cursor-pointer hover:scale-110 transition-transform"
+            className="mt-4 w-28 h-28 cursor-pointer hover:scale-105 transition-transform mx-auto"
             onClick={() =>
               openPokemonData(pokemonData.find(
                 p => p.name.fr.toLowerCase() === activeTrainer.starterPokemon.toLowerCase()
@@ -60,8 +59,7 @@ const HomePage: React.FC = () => {
 
       <button
         onClick={handleCapture}
-        className="mb-8 px-6 py-3 bg-gradient-to-r from-green-600 to-green-400 text-black font-bold rounded-lg shadow-lg hover:scale-105 transition"
-      >
+        className="mb-8 px-6 py-3 bg-gradient-to-r from-green-600 to-green-400 hover:from-green-700 hover:to-green-500 text-black font-bold rounded-lg shadow-lg transition">
         Se balader dans les hautes herbes
       </button>
 
