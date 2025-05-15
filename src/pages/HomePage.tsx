@@ -13,7 +13,14 @@ const HomePage: React.FC = () => {
     const pokemon = pokemonData.find(
       p => p.name.fr.toLowerCase() === activeTrainer.starterPokemon.toLowerCase()
     );
-    if (pokemon) setSelectedPokemon(pokemon);
+    if (!pokemon) return;
+
+    // Si le Pokémon sélectionné est déjà affiché, on le ferme
+    if (selectedPokemon && selectedPokemon.name.fr === pokemon.name.fr) {
+      setSelectedPokemon(null);
+    } else {
+      setSelectedPokemon(pokemon);
+    }
   };
 
   return (

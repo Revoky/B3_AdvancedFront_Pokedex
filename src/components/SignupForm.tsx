@@ -54,18 +54,34 @@ const SignupForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const [limitReached, setLimitReached] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const trainer = { ...formData, pokedex: [] };
     const success = addTrainer(trainer);
     if (!success) {
-      alert("Déjà deux dresseurs inscrits !");
+      setLimitReached(true);
       return;
     }
 
     setActiveTrainer(trainer);
     navigate("/");
   };
+
+  if (limitReached) {
+    return (
+      <div className="bg-red-800 text-white text-center rounded-lg p-6 mt-10 w-[25%] mx-auto shadow-lg font-serif">
+        <p className="text-xl mb-4 font-semibold">Deux dresseurs sont déjà inscrits.</p>
+        <button
+          onClick={() => navigate("/")}
+          className="bg-[#9a7bb7] hover:bg-[#b698d6] text-[#1c1b2f] font-bold py-2 px-4 rounded"
+        >
+          Retour à l'accueil
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form
