@@ -15,7 +15,6 @@ const HomePage: React.FC = () => {
     );
     if (!pokemon) return;
 
-    // Si le Pokémon sélectionné est déjà affiché, on le ferme
     if (selectedPokemon && selectedPokemon.name.fr === pokemon.name.fr) {
       setSelectedPokemon(null);
     } else {
