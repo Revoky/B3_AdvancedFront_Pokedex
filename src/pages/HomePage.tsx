@@ -3,7 +3,8 @@ import { Pokemon } from "../types";
 import pokemonData from "../pokemon";
 import PokemonCard from "../components/PokemonCard";
 import { useTrainer } from "../TrainerContext.tsx";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { useAppSelector } from '../hooks/useAppSelector';
 import { RootState } from "../store/store";
 import { addCapturedPokemon } from "../store/slices/pokemonSlice";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,8 +13,8 @@ const HomePage: React.FC = () => {
   const { activeTrainer } = useTrainer();
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
-  const dispatch = useDispatch();
-  const capturedIds = useSelector((state: RootState) => state.pokemon.capturedPokemonIds);
+  const dispatch = useAppDispatch();
+  const capturedIds = useAppSelector((state: RootState) => state.pokemon.capturedPokemonIds);
   const capturedPokemon = pokemonData.filter(p => capturedIds.includes(p.pokedex_id));
 
   const openPokemonData = (pokemon: Pokemon) => {
