@@ -71,8 +71,8 @@ const SignupForm: React.FC = () => {
 
   if (limitReached) {
     return (
-      <div className="bg-red-800 text-white text-center rounded-lg p-6 mt-10 w-[25%] mx-auto shadow-lg font-serif">
-        <p className="text-xl mb-4 font-semibold">Deux dresseurs sont déjà inscrits.</p>
+      <div className="text-white text-center rounded-lg p-6 mt-10 w-[25%] mx-auto shadow-lg font-serif">
+        <p className="text-xl mb-4 font-semibold">Deux dresseurs sont déjà inscrits</p>
         <button
           onClick={() => navigate("/")}
           className="bg-[#9a7bb7] hover:bg-[#b698d6] text-[#1c1b2f] font-bold py-2 px-4 rounded"
