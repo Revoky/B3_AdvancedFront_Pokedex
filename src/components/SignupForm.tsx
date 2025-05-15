@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTrainer } from "../TrainerContext.tsx";
 import '../index.css';
 
 interface FormData {
@@ -25,28 +26,27 @@ const SignupForm: React.FC = () => {
   const [starters, setStarters] = useState<Pokemon[]>([]);
   const navigate = useNavigate();
 
+  const { addTrainer, setActiveTrainer } = useTrainer();
+
   useEffect(() => {
-    const fetchStarters = async () => {
-      const startersData = [
-        {
-          name: "Bulbizarre",
-          pokedex_id: 1,
-          sprites: { regular: "https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/1/regular.png" },
-        },
-        {
-          name: "Salamèche",
-          pokedex_id: 4,
-          sprites: { regular: "https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/4/regular.png" },
-        },
-        {
-          name: "Carapuce",
-          pokedex_id: 7,
-          sprites: { regular: "https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/7/regular.png" },
-        },
-      ];
-      setStarters(startersData);
-    };
-    fetchStarters();
+    const startersData = [
+      {
+        name: "Bulbizarre",
+        pokedex_id: 1,
+        sprites: { regular: "https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/1/regular.png" },
+      },
+      {
+        name: "Salamèche",
+        pokedex_id: 4,
+        sprites: { regular: "https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/4/regular.png" },
+      },
+      {
+        name: "Carapuce",
+        pokedex_id: 7,
+        sprites: { regular: "https://raw.githubusercontent.com/Yarkis01/TyraDex/images/sprites/7/regular.png" },
+      },
+    ];
+    setStarters(startersData);
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -56,16 +56,14 @@ const SignupForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const existingProfiles = JSON.parse(localStorage.getItem("trainerProfiles") || "[]");
-
-    if (existingProfiles.length >= 2) {
-      alert("Déjà deux dresseurs inscrits");
+    const trainer = { ...formData, pokedex: [] };
+    const success = addTrainer(trainer);
+    if (!success) {
+      alert("Déjà deux dresseurs inscrits !");
       return;
     }
 
-    const updatedProfiles = [...existingProfiles, formData];
-    localStorage.setItem("trainerProfiles", JSON.stringify(updatedProfiles));
-    localStorage.setItem("activeTrainer", JSON.stringify(formData));
+    setActiveTrainer(trainer);
     navigate("/");
   };
 
