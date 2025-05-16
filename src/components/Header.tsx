@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 
         <button
           onClick={() => navigate("/signup")}
-          className="px-4 py-2 bg-[#7b5c82] rounded hover:bg-[#8f70a0] text-[#181818] font-semibold"
+          className="px-4 py-2 bg-[#9962a6] rounded hover:bg-[#784d82] text-[#181818] font-semibold"
         >
           + Nouveau
         </button>
