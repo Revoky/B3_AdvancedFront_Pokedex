@@ -110,7 +110,7 @@ const HomePage: React.FC = () => {
         Se balader dans les hautes herbes...
       </button>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-10">
         {capturedIds.map(id => {
           const p = gen1Pokemon?.find(p => p.pokedex_id === id);
           return p ? (
